@@ -1,35 +1,37 @@
 <%-- 
     Document   : YCGSDisplayMember
-    Created on : 2019. 1. 20
-    Author     : Youngsun Chang
-    Observer   : Gyeonglim Seo
+    Created on : 2019. 4. 6
+    Author   : Gyeonglim Seo
+    Observer     : Youngsun Chang
+
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="/includes/YCGSBanner.jsp" />
-
-<!-- start the middle column -->
-
 <section>
-<form action="YCGSRegister.jsp" method="post">
-     <h1>Thanks for joining our club!</h1>
-     <p>Here is the information you entered:</p>
-            
-            <label class="pad_top">Full Name:</label>
-            ${param.fullName} <br>
-            <label class="pad_top">Email:</label>
-            ${param.email}<br>
-            <label class="pad_top">Phone:</label>
-            ${param.phone}<br>
-
-            <label class="pad_top">IT Program:</label>
-            ${param.program}<br>
-            
-           <label class="pad_top">Year Level:</label>
-            ${param.level}<br>   
-            
-            <p>To regiter another member, click on the Back button in your browser or the Return button shown below.</p>
-            
-             <input type="submit" value="Return">
+<form action="YCGSMemberAdmin" method="get">
+     <h1>List of Members</h1>
+     <table>
+         <thead>
+         <th>Email</th>
+         <th>Full NAme</th>
+         <th>Program</th>
+         <th>Year</th>
+         <th colspan="2"></th>
+         </thead>
+            <c:forEach var="member" items="${memberList}">
+                <tr>
+                    <td><c:out value="${member.emailAddress}" /></td>
+                    <td><c:out value="${member.fullName}" /></td>
+                    <td><c:out value="${member.programName}" /></td>
+                    <td><c:out value="${member.yearLevel}" /></td>
+                    <td><a href="<c:url value='/YCGSMemberAdmin?action=editMember&email=${member.emailAddress}'/>">Edit</a>  </td>
+                    <td><a href="<c:url value='/YCGSMemberAdmin?action=removeMember&email=${member.emailAddress}'/>">Remove</a></td>
+                </tr>
+            </c:forEach>             
+     </table>
+     <input type="hidden" name="action" value="addMember"/>
+     <input type="submit" value="Add Member" style="width: 100px; margin-left: 8px; margin-top: 0px">
 </form>
 </section>
 
