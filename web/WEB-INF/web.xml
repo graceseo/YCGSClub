@@ -24,6 +24,10 @@
         <servlet-name>YCGSClearCartServlet</servlet-name>
         <servlet-class>club.cart.YCGSClearCartServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>YCGSMemberAdminController</servlet-name>
+        <servlet-class>club.admin.YCGSMemberAdminController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>YCGSDisplayBooksServlet</servlet-name>
         <url-pattern>/YCGSDisplayBooks</url-pattern>
@@ -49,6 +53,10 @@
         <exception-type>java.lang.Throwable</exception-type>
         <location>/error//YCGSError.jsp</location>
     </error-page>
+    <servlet-mapping>
+        <servlet-name>YCGSMemberAdminController</servlet-name>
+        <url-pattern>/YCGSMemberAdmin</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

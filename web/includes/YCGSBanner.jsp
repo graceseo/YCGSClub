@@ -25,7 +25,7 @@
         <nav id="nav_bar">
             <ul>
                 <li><a href="<c:url value='/YCGSIndex.jsp'/>">Home</a></li>
-                <li><a href="<c:url value='/YCGSRegister.jsp'/>">Register</a></li>
+                <li><a href="<c:url value='/YCGSMemberAdmin?action=addMember'/>">Register</a></li>
                 <li><a href="<c:url value='/YCGSLoan'/>">eLoan</a></li>
                 <li><a href="<c:url value='/YCGSCart'/>">eCart</a></li>
                 <li><a href="<c:url value='/YCGSAdmin.jsp'/>">Admin</a></li>
